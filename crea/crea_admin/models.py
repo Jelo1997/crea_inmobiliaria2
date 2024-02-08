@@ -2,6 +2,21 @@ from django.db import models
 
 # Create your models here.
 
+
+class caracteristicas(models.Model):
+    nombre = models.CharField(max_length=144, blank= False, null= False)
+    descripcion = models.CharField(max_length=144, blank= False, null= False)
+
+    def __str__(self) -> str:
+       return f'{self.nombre}'
+
+class servicios(models.Model):
+    nombre = models.CharField(max_length=144, blank= False, null= False)
+    descripcion = models.CharField(max_length=144, blank= False, null= False)
+
+    def __str__(self) -> str:
+       return f'{self.nombre}'
+    
 class propiedad(models.Model):
     tipos = {
         "Casa": "Casa",
@@ -24,19 +39,7 @@ class propiedad(models.Model):
     def __str__(self) -> str:
        return f'{self.tipo}'
     
-class caracteristicas(models.Model):
-    nombre = models.CharField(max_length=144, blank= False, null= False)
-    descripcion = models.CharField(max_length=144, blank= False, null= False)
 
-    def __str__(self) -> str:
-       return f'{self.nombre}'
-
-class servicios(models.Model):
-    nombre = models.CharField(max_length=144, blank= False, null= False)
-    descripcion = models.CharField(max_length=144, blank= False, null= False)
-
-    def __str__(self) -> str:
-       return f'{self.nombre}'
 
 class cliente(models.Model):
     nombre = models.CharField(max_length=144, blank= False, null= False)
@@ -44,6 +47,6 @@ class cliente(models.Model):
     telefono = models.CharField(max_length=144, blank= False, null= False)
     correo = models.EmailField(max_length=144, blank= False, null= False)
     intereses = models.ManyToManyField(propiedad)
-    
+
     def __str__(self) -> str:
        return f'{self.nombre}'
