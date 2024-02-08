@@ -4,18 +4,31 @@ from django.db import models
 
 
 class Caracteristicas(models.Model):
-    nombre = models.CharField(max_length=144, blank= False, null= False)
+    caract = (
+            ("Habitaciones", "Habitaciones"),
+            ("Baños", "Baños"),
+            ("Patio", "Patio"),
+            ("Piscina", "Piscina"),
+            )
+    nombre = models.CharField(max_length=15, choices=caract)
     descripcion = models.CharField(max_length=144, blank= False, null= False)
 
     def __str__(self) -> str:
-       return f'{self.nombre}'
+       return f'{self.nombre, self.descripcion}'
 
 class Servicios(models.Model):
-    nombre = models.CharField(max_length=144, blank= False, null= False)
+
+    serv = (
+            ("Internet", "Internet"),
+            ("Luz", "Luz"),
+            ("Agua", "Agua"),
+            ("Alcantarillado", "Alcantarillado"),
+            )
+    nombre = models.CharField(max_length=15, choices=serv)
     descripcion = models.CharField(max_length=144, blank= False, null= False)
 
     def __str__(self) -> str:
-       return f'{self.nombre}'
+       return f'{self.nombre, self.descripcion}'
     
 class Propiedad(models.Model):
     tipos = (
@@ -38,7 +51,7 @@ class Propiedad(models.Model):
     servicios = models.ManyToManyField(Servicios)
 
     def __str__(self) -> str:
-       return f'{self.tipo}'
+       return f'{self.tipo, self.precio, self.estado}'
     
 
 

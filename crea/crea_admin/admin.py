@@ -4,15 +4,15 @@ from .models import Propiedad, Caracteristicas, Servicios, Cliente
 
 @admin.register(Propiedad)
 class PropiedadAdmin(admin.ModelAdmin):
-    list_display = ('id', 'tipo')
+    list_display = ('id', 'tipo', 'precio', 'estado')
     
 @admin.register(Caracteristicas)
 class CaracteristicasAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nombre')
+    list_display = ('id', 'nombre', 'descripcion')
 
 @admin.register(Servicios)
 class ServiciosAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nombre')
+    list_display = ('id', 'nombre', 'descripcion')
 
 @admin.register(Cliente)
 class ClienteAdmin(admin.ModelAdmin):
