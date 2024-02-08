@@ -37,3 +37,13 @@ class servicios(models.Model):
 
     def __str__(self) -> str:
        return f'{self.nombre}'
+
+class cliente(models.Model):
+    nombre = models.CharField(max_length=144, blank= False, null= False)
+    apellido = models.CharField(max_length=144, blank= False, null= False)
+    telefono = models.CharField(max_length=144, blank= False, null= False)
+    correo = models.EmailField(max_length=144, blank= False, null= False)
+    intereses = models.ManyToManyField(propiedad)
+    
+    def __str__(self) -> str:
+       return f'{self.nombre}'
