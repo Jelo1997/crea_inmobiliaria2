@@ -24,7 +24,7 @@ class Propiedad(models.Model):
     )
     tipo = models.CharField(max_length=15, choices=tipos)
     ubicacion = models.CharField(max_length=144, blank= False, null= False)
-    precio = models.DecimalField(max_digits= 65, decimal_places = 2 ,blank = False, null = False)
+    precio = models.DecimalField(max_digits=65, decimal_places = 2 ,blank = False, null = False)
     descripcion = models.TextField(max_length=500, blank= False, null= False)
     #image = models.
     estados = (

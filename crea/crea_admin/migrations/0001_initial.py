@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('tipo', models.CharField(choices=[('Casa', 'Casa'), ('Terreno', 'Terreno')], max_length=15)),
                 ('ubicacion', models.CharField(max_length=144)),
-                ('precio', models.DecimalField(decimal_places=2, max_digits=1000000000)),
+                ('precio', models.DecimalField(decimal_places=2, max_digits=65)),
                 ('descripcion', models.TextField(max_length=500)),
                 ('estado', models.CharField(choices=[('Disponible', 'Disponible'), ('Vendida', 'Vendida'), ('Reservado', 'Reservado')], max_length=25)),
                 ('caracteristicas', models.ManyToManyField(to='crea_admin.Caracteristicas')),
