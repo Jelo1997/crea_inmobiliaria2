@@ -3,17 +3,17 @@ from .models import Propiedad, Caracteristicas, Servicios, Cliente
 # Register your models here.
 
 @admin.register(Propiedad)
-class CreaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nombre')
+class PropiedadAdmin(admin.ModelAdmin):
+    list_display = ('id', 'tipo')
     
 @admin.register(Caracteristicas)
-class CreaAdmin(admin.ModelAdmin):
+class CaracteristicasAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre')
 
 @admin.register(Servicios)
-class CreaAdmin(admin.ModelAdmin):
+class ServiciosAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre')
 
 @admin.register(Cliente)
-class CreaAdmin(admin.ModelAdmin):
+class ClienteAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre')
