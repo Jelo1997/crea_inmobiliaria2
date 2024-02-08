@@ -1,19 +1,19 @@
 from django.contrib import admin
-from .models import propiedad, caracteristicas, servicios, cliente
+from .models import Propiedad, Caracteristicas, Servicios, Cliente
 # Register your models here.
 
-@admin.register(propiedad)
+@admin.register(Propiedad)
 class CreaAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre')
     
-@admin.register(caracteristicas)
+@admin.register(Caracteristicas)
 class CreaAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre')
 
-@admin.register(servicios)
+@admin.register(Servicios)
 class CreaAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre')
 
-@admin.register(cliente)
+@admin.register(Cliente)
 class CreaAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre')
