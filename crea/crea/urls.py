@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from crea_admin.views import ver_cliente, ver_propiedades, ver_propiedad
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('cliente/', ver_cliente, name="cliente"),
+    path('propiedades/', ver_propiedades),
+    path('propiedad/<int:codigo_propiedad>/', ver_propiedad ,name="detalle_propiedad")
 ]
