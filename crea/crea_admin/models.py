@@ -64,3 +64,17 @@ class Cliente(models.Model):
 
     def __str__(self) -> str:
        return f'{self.nombre}'
+   
+class Empleado(models.Model):
+    tipos = (
+        ("User", "User"),
+        ("Admin", "Admin"),
+    )
+    tipo = models.CharField(max_length=15, choices=tipos)
+    username = models.CharField(max_length=144, blank= False, null= False)
+    email  = models.EmailField(max_length=144, blank= False, null= False)
+    password = models.CharField(max_length=144, blank= False, null= False)
+    telefono = models.CharField(max_length=144, blank= False, null= False)
+    
+    def __str__(self) -> str:
+       return f'{self.nombre}'
