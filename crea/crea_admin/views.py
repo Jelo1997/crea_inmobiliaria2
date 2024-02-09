@@ -18,6 +18,16 @@ def ver_cliente(request):
     template = "clientes.html"
     return render(request, template, contenido)
 
+#pagina empleados
+def ver_empleado(request):
+    empleado = Cliente.objects.all()
+    
+    contenido ={
+        'empleado': empleado,
+    }
+    template = "empleado.html"
+    return render(request, template, contenido)
+
 #pagina Propiedades
 def ver_propiedades(request):
     propiedad = Propiedad.objects.all()
