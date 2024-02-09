@@ -31,25 +31,26 @@ class Servicios(models.Model):
        return f'{self.nombre, self.descripcion}'
     
 class Propiedad(models.Model):
+    fecha_registro = models.DateField()
+    ubicacion = models.CharField(max_length=144, blank= False, null= False)
+    precio = models.DecimalField(max_digits=65, decimal_places = 2 ,blank = False, null = False)
     tipos = (
         ("Casa", "Casa"),
         ("Terreno", "Terreno"),
     )
-    tipo = models.CharField(max_length=15, choices=tipos)
-    ubicacion = models.CharField(max_length=144, blank= False, null= False)
-    precio = models.DecimalField(max_digits=65, decimal_places = 2 ,blank = False, null = False)
+    tipo = models.CharField(max_length=15, choices=tipos)  
     descripcion = models.TextField(max_length=500, blank= False, null= False)
-    #image = models.
-    estados = (
-            ("Disponible", "Disponible"),
-            ("Vendida", "Vendida"),
-            ("Reservado", "Reservado"),
-            )
-        
-    estado = models.CharField(max_length=25, choices=estados)
+   # image = models.ImageField(upload_to="propiedades")
     caracteristicas = models.ManyToManyField(Caracteristicas)
     servicios = models.ManyToManyField(Servicios)
-
+    precio_avaluo = models.DecimalField(max_digits=65, decimal_places = 2 ,blank = False, null = False)
+    estados =(
+        ("Captar", "Captar"),
+        ("Captar Urgente", "Captar Urgente"),
+        ("Descartar", "Descartar"),
+    )
+    estado = models.CharField(max_length=15, choices=estados)  
+    
     def __str__(self) -> str:
        return f'{self.tipo, self.precio, self.estado}'
     
@@ -60,7 +61,6 @@ class Cliente(models.Model):
     apellido = models.CharField(max_length=144, blank= False, null= False)
     telefono = models.CharField(max_length=144, blank= False, null= False)
     correo = models.EmailField(max_length=144, blank= False, null= False)
-    intereses = models.ManyToManyField(Propiedad)
 
     def __str__(self) -> str:
        return f'{self.nombre}'
@@ -91,9 +91,7 @@ class Proceso(models.Model):
             ("Finalizado", "Finalizado"),
             )
     estado = models.CharField(max_length=25, choices=estados)
-    cliente = models.ForeignKey(Cliente, related_name = 'pk', on_delete=models.CASCADE)
-    propiedad = models.ForeignKey(Propiedad, related_name = 'pk', on_delete=models.CASCADE)
-    agente = models.ForeignKey(Empleado, related_name = 'pk', on_delete=models.CASCADE)
+
     def __str__(self) -> str:
        return f'{self.nombre}'
     
