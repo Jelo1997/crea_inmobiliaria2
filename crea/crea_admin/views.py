@@ -3,10 +3,12 @@ from django.http import HttpResponse
 # Create your views here.
 from .models import Cliente, Propiedad
 
+#pagina principal
 def index(request):
     template = "index.html"
     return render(request, template)
 
+#pagina clientes
 def ver_cliente(request):
     cliente = Cliente.objects.all()
     
@@ -15,7 +17,8 @@ def ver_cliente(request):
     }
     template = "clientes.html"
     return render(request, template, contenido)
-    
+
+#pagina Propiedades
 def ver_propiedades(request):
     propiedad = Propiedad.objects.all()
     contenido = {
@@ -24,6 +27,7 @@ def ver_propiedades(request):
     template = "propiedades.html"
     return render(request, template, contenido)
 
+#pagina Propiedad
 def ver_propiedad(request, codigo_propiedad):
     propiedad = Propiedad.objects.get(pk = codigo_propiedad)
     contenido = {
