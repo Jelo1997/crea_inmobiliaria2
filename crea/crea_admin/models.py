@@ -64,6 +64,7 @@ class Cliente(models.Model):
 
     def __str__(self) -> str:
        return f'{self.nombre}'
+
    
 class Empleado(models.Model):
     tipos = (
@@ -77,4 +78,21 @@ class Empleado(models.Model):
     telefono = models.CharField(max_length=144, blank= False, null= False)
     
     def __str__(self) -> str:
-       return f'{self.nombre}'
+       return f'{self.tipo}'
+
+    
+class Proceso(models.Model):
+    nombre = models.CharField(max_length=144, blank= False, null= False)
+    descripcion = models.CharField(max_length=144, blank= False, null= False)
+    fecha_inicio = models.DateField()
+    fecha_fin = models.DateField()
+    estados= (
+            ("En Curso", "En Curso"),
+            ("Finalizado", "Finalizado"),
+            )
+    estado = models.CharField(max_length=25, choices=estados)
+    cliente = models.ForeignKey(Cliente, related_name = 'pk', on_delete=models.CASCADE)
+    propiedad = models.ForeignKey(Propiedad, related_name = 'pk', on_delete=models.CASCADE)
+     
+    
+
