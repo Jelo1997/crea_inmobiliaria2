@@ -3,13 +3,17 @@ from django.http import HttpResponse
 # Create your views here.
 from .models import Cliente, Propiedad
 
+def index(request):
+    template = "index.html"
+    return render(request, template)
+
 def ver_cliente(request):
     cliente = Cliente.objects.all()
     
     contenido ={
         'cliente': cliente,
     }
-    template = "index.html"
+    template = "clientes.html"
     return render(request, template, contenido)
     
 def ver_propiedades(request):
