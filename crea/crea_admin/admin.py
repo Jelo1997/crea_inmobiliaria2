@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Propiedad, Caracteristicas, Servicios, Cliente
+from .models import Propiedad, Caracteristicas, Servicios, Cliente, Empleado
 # Register your models here.
 
 @admin.register(Propiedad)
@@ -17,3 +17,6 @@ class ServiciosAdmin(admin.ModelAdmin):
 @admin.register(Cliente)
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre')
+@admin.register(Empleado)
+class EmpleadoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'username')
