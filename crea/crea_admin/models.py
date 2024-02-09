@@ -93,6 +93,8 @@ class Proceso(models.Model):
     estado = models.CharField(max_length=25, choices=estados)
     cliente = models.ForeignKey(Cliente, related_name = 'pk', on_delete=models.CASCADE)
     propiedad = models.ForeignKey(Propiedad, related_name = 'pk', on_delete=models.CASCADE)
-     
+    agente = models.ForeignKey(Empleado, related_name = 'pk', on_delete=models.CASCADE)
+    def __str__(self) -> str:
+       return f'{self.nombre}'
     
 
